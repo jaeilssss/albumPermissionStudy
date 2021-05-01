@@ -7,62 +7,14 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/layout"
-        app:layout_constraintDimensionRatio="w,1:3"
-        android:orientation="horizontal">
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/image1"
-            android:scaleType="centerCrop"
-            android:layout_weight="1"/>
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/image2"
-            android:scaleType="centerCrop"
-            android:layout_weight="1"/>
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/image3"
-            android:scaleType="centerCrop"
-            android:layout_weight="1"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout"
-        android:id="@+id/layout2"
-        app:layout_constraintDimensionRatio="w,1:3"
-        android:orientation="horizontal">
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/image4"
-            android:scaleType="centerCrop"
-            android:layout_weight="1"/>
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/image5"
-            android:scaleType="centerCrop"
-            android:layout_weight="1"/>
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/image6"
-            android:scaleType="centerCrop"
-            android:layout_weight="1"/>
-    </LinearLayout>
+ <ImageView
+     android:layout_width="0dp"
+     android:layout_height="300dp"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintTop_toTopOf="parent"
+     android:layout_margin="10dp"
+     android:id="@+id/image"/>
 
 
     <Button
@@ -70,16 +22,13 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/album"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:id="@+id/add"
         android:text="사진추가하기"/>
-<Button
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintBottom_toBottomOf="parent"
-    android:text="전자앨범"
-    android:id="@+id/album"/>
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

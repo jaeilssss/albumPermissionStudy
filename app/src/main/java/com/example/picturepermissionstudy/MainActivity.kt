@@ -2,20 +2,25 @@ package com.example.picturepermissionstudy
 
 import android.content.Intent
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
 
 class MainActivity : AppCompatActivity() {
     private lateinit var add : Button
-
+    lateinit var image : ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         add = findViewById(R.id.add)
+       image = findViewById<ImageView>(R.id.image)
+
+
 
         add.setOnClickListener {
             when{
@@ -39,6 +44,16 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 2000) {
+            var path = data?.getStringExtra("image")
+            println("##DDD${path}")
+            if(data!=null){
+                Glide.with(applicationContext).load(path).into(image)
+            }
+        }
+    }
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -64,11 +79,15 @@ class MainActivity : AppCompatActivity() {
     private fun navigatesPhotos(){
         //여기에서는 contentsProvider에서 storage acess framework 개념을 이용(saf)
 
-        val  intent  = Intent(Intent.ACTION_GET_CONTENT)
+//        val  intent  = Intent(Intent.ACTION_PICK)
+//
+//        intent.type = "image/*"
+//
+//        startActivityForResult(intent,2000)
 
-        intent.type = "image/*"
-
+        val intent = Intent(this,imagePickerActivity::class.java)
         startActivityForResult(intent,2000)
+
 
     }
 
